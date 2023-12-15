@@ -18,7 +18,7 @@ const subtopics = {
   ],
   CoinStore: [
     "Plan",
-    "Payment Transcation",
+    "Payment Transaction",
     "Pending Approval",
     "Approved Offline",
   ],
