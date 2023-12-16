@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
           ${interStyles}
         `}</style>
       </head>
-      <body>
+      <body suppressHydrationWarning={true}>
         <div className="flex">
           <Sidebar />
           <div className="flex-1 h-screen">
