@@ -7,7 +7,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 
-const SignIn = () => {
+const AuthPage = () => {
 
   const router = useRouter();
 
@@ -112,4 +112,4 @@ const SignIn = () => {
 };
 
 // Export the SignIn component
-export default SignIn;
+export default AuthPage;
