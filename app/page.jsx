@@ -25,7 +25,8 @@ const AuthPage = () => {
       if (response.ok) {
         const data = await response.json();
         const token = data.token;
-        localStorage.setItem('token', token);
+        // localStorage.setItem('token', token);
+        document.cookie = `token=${token}`;
         router.push(data.redirect);
       } else {
         const errorData = await response.json();

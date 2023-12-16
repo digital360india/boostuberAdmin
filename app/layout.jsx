@@ -4,6 +4,9 @@ export const metadata = {
   };
 
   export default function RootLayout({ children }) {
+    if (typeof window !== "undefined") {
+      console.log(localStorage.getItem("token"));
+    }
     return (
       <html lang="en">
      <head><script src="https://cdn.tailwindcss.com"></script>
