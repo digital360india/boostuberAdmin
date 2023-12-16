@@ -5,6 +5,6 @@ const loginSchema = new Schema({
     password: String
 },{timestamps:true});
 
-const Login = mongoose.models.Topic || mongoose.model("Login", loginSchema);
+const Login = mongoose.models.Login || mongoose.model("Login", loginSchema);
 
 export default Login;

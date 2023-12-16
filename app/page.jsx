@@ -1,9 +1,6 @@
 "use client";
-
 import React, { useState } from "react";
 import Image from "next/image";
-
-import axios from "axios";
 import { useRouter } from "next/navigation";
 
 const AuthPage = () => {
@@ -14,14 +11,15 @@ const AuthPage = () => {
     password: "",
   });
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
       const response = await fetch('/api/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type':  'application/json'
         },
-        body:{ email, password },
+    body: JSON.stringify(data), 
       });
 
       if (response.ok) {
