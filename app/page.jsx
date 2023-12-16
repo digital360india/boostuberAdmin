@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -6,17 +6,13 @@ import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-
 const AuthPage = () => {
-
   const router = useRouter();
-
 
   const [data, setData] = useState({
     email: "",
     password: "",
   });
-
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -38,11 +34,10 @@ const AuthPage = () => {
     }
   };
 
-
   return (
     <div className="flex justify-center h-screen relative top-10 overflow-hidden">
       <Image
-        src='/images/cover/cover-01.png'
+        src="/images/cover/cover-01.png"
         alt="Logo"
         width={1200}
         height={1200}
@@ -64,7 +59,6 @@ const AuthPage = () => {
                   type="email"
                   value={data.email}
                   name="email"
-                 
                   placeholder="Enter your email"
                   onChange={(e) =>
                     setData({ ...data, [e.target.name]: e.target.value })

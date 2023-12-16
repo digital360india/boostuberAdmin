@@ -1,7 +1,5 @@
-
 import MenuCard from "@/components/DashboardCards";
-
-import React from "react";
+import MainComponent from "@/components/MainComponet";
 const MenuOptions = [
   { name: "Dashboard" },
   { name: "Users" },
@@ -22,9 +20,11 @@ const MenuOptions = [
   { name: "Promotion Banner" },
 ];
 
-const Dashboard = () => {
+export default function Home() {
   return (
-    <>
+    <div>
+      <MainComponent />
+      <>
       <div className="bg-none" >
         <div className="flex flex-wrap gap-8 p-8">
           {MenuOptions.map((item, index) => (
@@ -33,7 +33,6 @@ const Dashboard = () => {
         </div>
       </div>
     </>
-  );
-};
-
-export default Dashboard;
+    </div>
+  )
+}

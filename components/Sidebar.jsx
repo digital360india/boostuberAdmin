@@ -156,13 +156,21 @@ const Sidebar = () => {
                 </svg>
               </div>
             ) : (
+              (Menu.title
+                  .replace(/[^a-zA-Z0-9]/g, "")
+                  .toLowerCase() !== "dashboard")  ?
               <Link
-                href={`/${Menu.title
+                href={`/dashboard/${Menu.title
                   .replace(/[^a-zA-Z0-9]/g, "")
                   .toLowerCase()}`}
               >
                 {Menu.title}
-              </Link>
+              </Link> :
+             <Link
+             href={`/dashboard`}
+           >
+             {Menu.title}
+           </Link> 
             )}
             {openSubmenus.includes(index) && Menu.subtopics && (
               <ul className="ml-4 flex-col transition-transform duration-300 delay-500">
@@ -176,7 +184,7 @@ const Sidebar = () => {
                     }`}
                   >
                     <Link
-                      href={`/${Menu.title
+                      href={`/dashboard/${Menu.title
                         .replace(/[^a-zA-Z0-9]/g, "")
                         .toLowerCase()}/${subtopic
                         .replace(/[^a-zA-Z0-9]/g, "")
