@@ -14,26 +14,29 @@ const AuthPage = () => {
     password: "",
   });
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body:{ email, password },
+      });
 
-    if (data.email !== "" && data.password !== "") {
-      try {
-        const response = await axios.post(
-          `http://localhost:8080/register/login`,
-          data
-        );
-
-        if (response.status === 200 && response?.data !== "") {
-          localStorage.setItem("user", JSON.stringify(response?.data));
-          router.push("/dashboard");
-        }
-      } catch (error) {
-        console.error(error);
+      if (response.ok) {
+        const data = await response.json();
+        const token = data.token;
+        localStorage.setItem('token', token);
+        router.push(data.redirect);
+      } else {
+        const errorData = await response.json();
+        console.error('Login failed:', errorData.message);
       }
+    } catch (error) {
+      console.error('Error during login:', error);
     }
   };
-
   return (
     <div className="flex justify-center h-screen relative top-10 overflow-hidden">
       <Image
